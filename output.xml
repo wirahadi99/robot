@@ -1,107 +1,344 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.10.6 on darwin)" generated="2024-06-22T13:36:13.584769" rpa="false" schemaversion="5">
-<suite id="s1" name="Reqres-Api-Test" source="/Users/wiraproject/Documents/automation/Robot/Test/reqres-api-test.robot">
-<test id="s1-t1" name="Register New User" line="15">
+<robot generator="Robot 7.0.1 (Python 3.10.6 on darwin)" generated="2024-06-22T15:07:25.486800" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot" source="/Users/wiraproject/Documents/automation/Robot">
+<suite id="s1-s1" name="Test" source="/Users/wiraproject/Documents/automation/Robot/Test">
+<suite id="s1-s1-s1" name="Checkout-On-Saucedemo" source="/Users/wiraproject/Documents/automation/Robot/Test/checkout-on-saucedemo.robot">
+<test id="s1-s1-s1-t1" name="Successful checkout with a backpack" line="6">
+<kw name="Given I am logged in to Saucedemo" owner="checkout-steps">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:25.647602" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${sauceDemoUrl}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-22T15:07:25.647411" elapsed="14.633416"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:40.288802" level="INFO">Page title is 'Swag Labs'.</msg>
+<arg>Swag Labs</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-06-22T15:07:40.282824" elapsed="0.006098"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:40.294180" level="INFO">Typing text 'standard_user' into text field 'id = user-name'.</msg>
+<arg>${userNameId}</arg>
+<arg>standard_user</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:40.289165" elapsed="0.736800"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.027930" level="INFO">Typing password into text field 'id = password'.</msg>
+<msg time="2024-06-22T15:07:41.066770" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${passwordId}</arg>
+<arg>secret_sauce</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.027136" elapsed="0.082875"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.110559" level="INFO">Clicking button 'id = login-button'.</msg>
+<arg>${buttonId}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.110264" elapsed="0.080513"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:inventory_container</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.191033" elapsed="0.016780"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:25.647137" elapsed="15.560833"/>
+</kw>
+<kw name="And I have added a backpack to my cart" owner="checkout-steps">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.208925" level="INFO">Clicking button 'id = add-to-cart-sauce-labs-backpack'.</msg>
+<arg>${addToCartId}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.208728" elapsed="0.042117"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.208420" elapsed="0.042602"/>
+</kw>
+<kw name="When I navigate to the cart" owner="checkout-steps">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.252161" level="INFO">Clicking link 'class = shopping_cart_link'.</msg>
+<arg>${checkoutPageLink}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.251892" elapsed="0.047883"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${checkoutButton}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.300062" elapsed="0.009697"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.251356" elapsed="0.058526"/>
+</kw>
+<kw name="And I click Checkout" owner="checkout-steps">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.310634" level="INFO">Clicking button 'id = checkout'.</msg>
+<arg>${checkoutButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.310451" elapsed="0.037477"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.310181" elapsed="0.037880"/>
+</kw>
+<kw name="Then I am on the checkout information page" owner="checkout-steps">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Checkout: Your Information</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.348728" elapsed="0.011873"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.348344" elapsed="0.012407"/>
+</kw>
+<kw name="When I enter my valid first name, last name, and postal code" owner="checkout-steps">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.361696" level="INFO">Typing text 'Minamoto' into text field 'id = first-name'.</msg>
+<arg>${firstNameField}</arg>
+<arg>Minamoto</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.361453" elapsed="0.055721"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.417594" level="INFO">Typing text 'Shizuka' into text field 'id = last-name'.</msg>
+<arg>${lastNameField}</arg>
+<arg>Shizuka</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.417359" elapsed="0.048115"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.465891" level="INFO">Typing text '54551' into text field 'id = postal-code'.</msg>
+<arg>${postalCodeField}</arg>
+<arg>54551</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.465660" elapsed="0.047980"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.361125" elapsed="0.152698"/>
+</kw>
+<kw name="And I click Continue" owner="checkout-steps">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.514734" level="INFO">Clicking button 'id = continue'.</msg>
+<arg>${continueButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.514534" elapsed="0.039579"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.514190" elapsed="0.040463"/>
+</kw>
+<kw name="Then I am on the checkout overview page" owner="checkout-steps">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Checkout: Overview</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.555403" elapsed="0.008132"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.555132" elapsed="0.008517"/>
+</kw>
+<kw name="And I click Finish" owner="checkout-steps">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.564348" level="INFO">Clicking button 'id = finish'.</msg>
+<arg>${finishButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.564154" elapsed="0.039781"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.563903" elapsed="0.040148"/>
+</kw>
+<kw name="Then I am on the checkout complete page" owner="checkout-steps">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Checkout: Complete!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.604574" elapsed="0.008857"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.604329" elapsed="0.009205"/>
+</kw>
+<kw name="And I see a confirmation message &quot;Thank you for your order!&quot;" owner="checkout-steps">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-06-22T15:07:41.623386" level="INFO">Current page contains text 'Thank you for your order!'.</msg>
+<arg>Thank you for your order!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.614136" elapsed="0.009380"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.613780" elapsed="0.009980"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:25.646239" elapsed="15.977720"/>
+</test>
+<status status="PASS" start="2024-06-22T15:07:25.505828" elapsed="16.118733"/>
+</suite>
+<suite id="s1-s1-s2" name="Reqres-Api-Test" source="/Users/wiraproject/Documents/automation/Robot/Test/reqres-api-test.robot">
+<test id="s1-s1-s2-t1" name="GET SINGLE USER" line="8">
+<kw name="Given I am hit api get single user" owner="get-single-user-steps">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-06-22T15:07:41.996099" level="INFO">GET Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-06-22T15:07:41.996575" level="INFO">GET Response : url=https://reqres.in/api/users/2 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 22 Jun 2024 08:07:42 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1718562666&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=zxsnus9AXPiOMGkvcOm%2BcGUIhOAgsO2sh25o4VjkYDM%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1718562666&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=zxsnus9AXPiOMGkvcOm%2BcGUIhOAgsO2sh25o4VjkYDM%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"118-pbdwwFo9SKNhD3Lx5iHJyngpq00"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '5581', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '897abf07dc615f7b-SIN', 'Content-Encoding': 'gzip'} 
+ body={"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-06-22T15:07:41.997040" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${base_url}${single_user}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.735564" elapsed="0.261535"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-22T15:07:41.998555" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.997744" elapsed="0.000904"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.735359" elapsed="0.263459"/>
+</kw>
+<kw name="When I want to check the response data" owner="get-single-user-steps">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-06-22T15:07:42.002237" level="INFO">${resJson} = {'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://reqres.in/#support...</msg>
+<var>${resJson}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-06-22T15:07:41.999958" elapsed="0.002319"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-22T15:07:42.002998" level="INFO">${resJson} = {'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://reqres.in/#support...</msg>
+<arg>${resJson}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-22T15:07:42.002452" elapsed="0.000714"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.999404" elapsed="0.003941"/>
+</kw>
+<kw name="Then First name should be Janet" owner="get-single-user-steps">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resJson['data']['first_name']}</arg>
+<arg>Janet</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-22T15:07:42.004489" elapsed="0.001371"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:42.003919" elapsed="0.002076"/>
+</kw>
+<kw name="Then Last name should be Weaver" owner="get-single-user-steps">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resJson['data']['last_name']}</arg>
+<arg>Weaver</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-22T15:07:42.006764" elapsed="0.000809"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:42.006372" elapsed="0.001297"/>
+</kw>
+<kw name="And Email should be janet.weaver@reqres.in" owner="get-single-user-steps">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${resJson['data']['email']}</arg>
+<arg>janet.weaver@reqres.in</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-22T15:07:42.008404" elapsed="0.000966"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:42.008061" elapsed="0.001432"/>
+</kw>
+<status status="PASS" start="2024-06-22T15:07:41.734891" elapsed="0.274836"/>
+</test>
+<test id="s1-s1-s2-t2" name="Register New User" line="15">
 <kw name="Given I want to register a new user" owner="post-create-user">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-06-22T13:36:13.665749" level="INFO">&amp;{payload} = { name=Gouda | job=QA Engineer }</msg>
+<msg time="2024-06-22T15:07:42.011521" level="INFO">&amp;{payload} = { name=Gouda | job=QA Engineer }</msg>
 <var>&amp;{payload}</var>
 <arg>name=Gouda</arg>
 <arg>job=QA Engineer</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-06-22T13:36:13.665448" elapsed="0.001799"/>
+<status status="PASS" start="2024-06-22T15:07:42.011091" elapsed="0.000471"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-06-22T13:36:13.670206" level="INFO">${json_payload} = {"name": "Gouda", "job": "QA Engineer"}</msg>
+<msg time="2024-06-22T15:07:42.016219" level="INFO">${json_payload} = {"name": "Gouda", "job": "QA Engineer"}</msg>
 <var>${json_payload}</var>
 <arg>json.dumps($payload)</arg>
 <arg>json</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-06-22T13:36:13.667479" elapsed="0.002843"/>
+<status status="PASS" start="2024-06-22T15:07:42.011748" elapsed="0.004504"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2024-06-22T13:36:13.670666" level="INFO">${json_payload} = {"name": "Gouda", "job": "QA Engineer"}</msg>
+<msg time="2024-06-22T15:07:42.016659" level="INFO">${json_payload} = {"name": "Gouda", "job": "QA Engineer"}</msg>
 <arg>${json_payload}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2024-06-22T13:36:13.670469" elapsed="0.000262"/>
+<status status="PASS" start="2024-06-22T15:07:42.016413" elapsed="0.000292"/>
 </kw>
-<status status="PASS" start="2024-06-22T13:36:13.665175" elapsed="0.005626"/>
+<status status="PASS" start="2024-06-22T15:07:42.010684" elapsed="0.006091"/>
 </kw>
 <kw name="When I sent a request" owner="post-create-user">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-06-22T13:36:13.671383" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<msg time="2024-06-22T15:07:42.017529" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
 <var>${headers}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-06-22T13:36:13.671228" elapsed="0.000215"/>
+<status status="PASS" start="2024-06-22T15:07:42.017325" elapsed="0.000232"/>
 </kw>
 <kw name="POST" owner="RequestsLibrary">
-<msg time="2024-06-22T13:36:14.821090" level="INFO">POST Request : url=https://reqres.in/api/users 
+<msg time="2024-06-22T15:07:42.994645" level="INFO">POST Request : url=https://reqres.in/api/users 
  path_url=/api/users 
  headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '39'} 
  body={"name": "Gouda", "job": "QA Engineer"} 
  </msg>
-<msg time="2024-06-22T13:36:14.835342" level="INFO">POST Response : url=https://reqres.in/api/users 
+<msg time="2024-06-22T15:07:42.994794" level="INFO">POST Response : url=https://reqres.in/api/users 
  status=201, reason=Created 
- headers={'Date': 'Sat, 22 Jun 2024 06:36:14 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1719038174&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=iZo7NY%2BR9K728CZcXlj6y4jhNKLucY8GrES2OlYxuX8%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1719038174&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=iZo7NY%2BR9K728CZcXlj6y4jhNKLucY8GrES2OlYxuX8%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"56-Qx3Qz8lZh2525bB/O5nxczvC+uY"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '897a390af8db87cb-SIN'} 
- body={"name":"Gouda","job":"QA Engineer","id":"954","createdAt":"2024-06-22T06:36:14.589Z"} 
+ headers={'Date': 'Sat, 22 Jun 2024 08:07:42 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '86', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1719043662&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=wdSLEnrdyH3xOICBR5JhN2HubFqWJT%2FZTotlStnbkUI%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1719043662&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=wdSLEnrdyH3xOICBR5JhN2HubFqWJT%2FZTotlStnbkUI%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"56-DGNwYhyN4/mQ8+cqJp5jh6Jd6d8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '897abf0908ea9c47-SIN'} 
+ body={"name":"Gouda","job":"QA Engineer","id":"921","createdAt":"2024-06-22T08:07:42.794Z"} 
  </msg>
-<msg time="2024-06-22T13:36:14.835647" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<msg time="2024-06-22T15:07:42.995154" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <var>${response}</var>
 <arg>url=${base_url}${create_user}</arg>
 <arg>data=${json_payload}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a POST request.</doc>
-<status status="PASS" start="2024-06-22T13:36:13.671537" elapsed="1.164239"/>
+<status status="PASS" start="2024-06-22T15:07:42.017686" elapsed="0.977510"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2024-06-22T13:36:14.836785" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<msg time="2024-06-22T15:07:42.995939" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2024-06-22T13:36:14.836179" elapsed="0.000813"/>
+<status status="PASS" start="2024-06-22T15:07:42.995531" elapsed="0.000462"/>
 </kw>
-<status status="PASS" start="2024-06-22T13:36:13.671032" elapsed="1.166149"/>
+<status status="PASS" start="2024-06-22T15:07:42.017037" elapsed="0.979050"/>
 </kw>
 <kw name="Then I verify the response" owner="post-create-user">
 <kw name="Status Should Be" owner="RequestsLibrary">
 <arg>201</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" start="2024-06-22T13:36:14.838702" elapsed="0.000447"/>
+<status status="PASS" start="2024-06-22T15:07:42.996845" elapsed="0.000320"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-06-22T13:36:14.840386" level="INFO">${response_json} = {'name': 'Gouda', 'job': 'QA Engineer', 'id': '954', 'createdAt': '2024-06-22T06:36:14.589Z'}</msg>
+<msg time="2024-06-22T15:07:42.998260" level="INFO">${response_json} = {'name': 'Gouda', 'job': 'QA Engineer', 'id': '921', 'createdAt': '2024-06-22T08:07:42.794Z'}</msg>
 <var>${response_json}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-06-22T13:36:14.839405" elapsed="0.001151"/>
+<status status="PASS" start="2024-06-22T15:07:42.997321" elapsed="0.000973"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${response_json['name']}</arg>
 <arg>Gouda</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-06-22T13:36:14.840789" elapsed="0.000840"/>
+<status status="PASS" start="2024-06-22T15:07:42.998443" elapsed="0.000882"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${response_json['job']}</arg>
 <arg>QA Engineer</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-06-22T13:36:14.841982" elapsed="0.000936"/>
+<status status="PASS" start="2024-06-22T15:07:42.999504" elapsed="0.000891"/>
 </kw>
-<status status="PASS" start="2024-06-22T13:36:14.838170" elapsed="0.005143"/>
+<status status="PASS" start="2024-06-22T15:07:42.996468" elapsed="0.004030"/>
 </kw>
-<status status="PASS" start="2024-06-22T13:36:13.664589" elapsed="1.179179"/>
+<status status="PASS" start="2024-06-22T15:07:42.010030" elapsed="0.990744"/>
 </test>
-<status status="PASS" start="2024-06-22T13:36:13.587462" elapsed="1.258305"/>
+<status status="PASS" start="2024-06-22T15:07:41.625099" elapsed="1.376214"/>
+</suite>
+<status status="PASS" start="2024-06-22T15:07:25.505016" elapsed="17.497223"/>
+</suite>
+<status status="PASS" start="2024-06-22T15:07:25.488134" elapsed="17.515024"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Reqres-Api-Test">Reqres-Api-Test</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Robot">Robot</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1" name="Test">Robot.Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Checkout-On-Saucedemo">Robot.Test.Checkout-On-Saucedemo</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s2" name="Reqres-Api-Test">Robot.Test.Reqres-Api-Test</stat>
 </suite>
 </statistics>
 <errors>
